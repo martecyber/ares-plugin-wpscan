@@ -1,0 +1,69 @@
+[
+  {
+    "toolId": "wpscan",
+    "displayName": "WPScan",
+    "binary": "wpscan",
+    "resultFormat": "default",
+    "validScopeKinds": ["url", "url_wildcard"],
+    "validAssetTypes": ["web_application"],
+    "maxTargets": 1,
+    "targetEmission": "single-flag",
+    "targetFlag": "--url",
+    "outputArgs": ["-o", "{outPath}", "--format", "json", "--no-banner"],
+    "minVersion": null,
+    "requiresRoot": false,
+    "customBuilder": null,
+    "fields": [
+      {
+        "key": "apiToken",
+        "type": "string",
+        "flag": "--api-token",
+        "pattern": "^[A-Za-z0-9_\\-]{1,100}$"
+      },
+      {
+        "key": "enumerate",
+        "type": "string",
+        "flag": "--enumerate",
+        "pattern": "^[a-z0-9,]{1,100}$"
+      },
+      {
+        "key": "pluginsDetection",
+        "type": "enum",
+        "flag": "--plugins-detection",
+        "options": ["passive", "aggressive", "mixed"]
+      },
+      {
+        "key": "themesDetection",
+        "type": "enum",
+        "flag": "--themes-detection",
+        "options": ["passive", "aggressive", "mixed"]
+      },
+      {
+        "key": "maxThreads",
+        "type": "number",
+        "flag": "--max-threads",
+        "min": 1,
+        "max": 100
+      },
+      {
+        "key": "throttle",
+        "type": "number",
+        "flag": "--throttle",
+        "min": 0,
+        "max": 60000
+      },
+      {
+        "key": "requestTimeout",
+        "type": "number",
+        "flag": "--request-timeout",
+        "min": 1,
+        "max": 600
+      },
+      {
+        "key": "disableSslVerification",
+        "type": "boolean_flag",
+        "flag": "--disable-tls-checks"
+      }
+    ]
+  }
+]
